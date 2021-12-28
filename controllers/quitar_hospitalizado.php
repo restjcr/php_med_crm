@@ -42,6 +42,7 @@
         die("Error al insertar registro a altas o decesos");
     }
 
+    //agregar diagnostico
     $preparada_resetear = $conexion->prepare("UPDATE camas SET id_paciente=NULL,id_doctor=NULL,
     descripcion_ingreso=NULL,fecha_ingreso=NULL,estado='libre' WHERE id_cama=:id_cama");
 

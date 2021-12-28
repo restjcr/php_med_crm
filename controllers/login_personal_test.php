@@ -10,15 +10,21 @@
     $sentencia->bindParam(":usuario",$usuario);
     $sentencia->bindParam(":password",$password);
 
+    $sentencia->setFetchMode(PDO::FETCH_ASSOC);
+
     $sentencia->execute();
 
-    $conexion = null;
+    $personal = $sentencia->fetch();
 
+    $conexion = null;
+    
     if ($sentencia->rowCount() == 1) {
         
         session_start();
 
-        $_SESSION["personal"] = $usuario;
+        $_SESSION["id_personal"] = $personal["id_personal"];
+        $_SESSION["nombres_personal"] = $personal["nombres"];
+        $_SESSION["apellidos_personal"] = $personal["apellidos"];
 
         header("location:../personal/home.php");
 

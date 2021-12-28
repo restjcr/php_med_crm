@@ -1,6 +1,6 @@
 <?php
 
-    require("../database/conexion.php");
+    require("../../database/conexion.php");
 
     $id_especialidad = $_GET["id"];
 
